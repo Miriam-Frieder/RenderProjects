@@ -3,7 +3,9 @@ const axios = require('axios');
 
 const app = express();
 
-const API_KEY = 'rnd_YHXEXFuSJ6LB8o1yLyqfflGT9lOr';
+const PORT = process.env.PORT || 3000; 
+
+const API_KEY = process.env.API_KEY;
 
 app.get('/', async (req, res) => {
     try {
@@ -19,3 +21,6 @@ app.get('/', async (req, res) => {
     }
 });
 
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
