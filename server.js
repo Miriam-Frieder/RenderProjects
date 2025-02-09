@@ -20,6 +20,8 @@ app.get('/', async (req, res) => {
         res.json(response.data);
     } catch (error) {
         console.error('Error fetching services:', error);
+        if(error.status==401)
+            res.status(401).send('Invalid API key');
         res.status(500).send('Error fetching services');
     }
 });
