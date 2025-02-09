@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const axios = require('axios');
 
@@ -8,6 +10,7 @@ const PORT = process.env.PORT || 3000;
 const API_KEY = process.env.API_KEY;
 
 app.get('/', async (req, res) => {
+    console.log(API_KEY)
     try {
         const response = await axios.get('https://api.render.com/v1/services', {
             headers: {
