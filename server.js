@@ -5,9 +5,9 @@ const axios = require('axios');
 
 const app = express();
 
-const PORT = process.env.PORT || 3000; 
+const PORT = process.env.PORT || 3000;
 
-const API_KEY = process.env.API_KEY||'rnd_YHXEXFuSJ6LB8o1yLyqfflGT9lOr';
+const API_KEY = process.env.API_KEY;
 
 app.get('/', async (req, res) => {
     console.log(API_KEY)
@@ -20,9 +20,10 @@ app.get('/', async (req, res) => {
         res.json(response.data);
     } catch (error) {
         console.error('Error fetching services:', error);
-        if(error.status==401)
+        if (error.status == 401)
             res.status(401).send('Invalid API key');
-        res.status(500).send('Error fetching services');
+        else
+            res.status(500).send('Error fetching services');
     }
 });
 
