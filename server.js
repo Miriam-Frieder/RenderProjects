@@ -7,7 +7,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3000; 
 
-const API_KEY = process.env.API_KEY;
+const API_KEY = process.env.API_KEY||'rnd_YHXEXFuSJ6LB8o1yLyqfflGT9lOr';
 
 app.get('/', async (req, res) => {
     console.log(API_KEY)
